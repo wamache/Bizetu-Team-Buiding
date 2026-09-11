@@ -1,0 +1,1 @@
+This is a basic preview. You can use dd($block) to view the data you have access to. <br />This preview file is located at: /home/wamache/Projects/Team_Building/resources/views/site/blocks/image-next-to-text.blade.php
