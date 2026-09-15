@@ -1,20 +1,21 @@
 @extends('twill::layouts.form')
 
-@section('contentFields')
-
+{{-- 1. THIS CONTROLS THE "ADD NEW" MODAL (Image 2) --}}
+@section('formFields')
+    
     @formField('input', [
-        'name' => 'position',
-        'label' => 'Position',
-        'type' => 'number',
-        'min' => 1,
-        'default' => 1,
+        'name' => 'title',
+        'label' => 'Menu Title',
+        'note' => 'Menu display name, e.g. "Home"',
+        'maxlength' => 255,
+        'required' => true,
     ])
 
     @formField('input', [
         'name' => 'key',
         'label' => 'Key',
+        'note' => 'Slug-like url',
         'maxlength' => 200,
-        'required' => true,
     ])
 
     @php
@@ -34,7 +35,18 @@
                 'label' => $menuType->title,
             ];
         })->values()->toArray(),
-        'required' => true,
+    ])
+@stop
+
+{{-- 2. THIS CONTROLS THE MAIN EDIT PAGE --}}
+@section('contentFields')
+
+    @formField('input', [
+        'name' => 'position',
+        'label' => 'Position',
+        'type' => 'number',
+        'min' => 1,
+        'default' => 1,
     ])
 
 @stop
